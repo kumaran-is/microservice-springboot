@@ -11,7 +11,7 @@ import com.employee.entity.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	
-//	@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
 	Optional<Employee> findByEmail(String email);
 
 }
