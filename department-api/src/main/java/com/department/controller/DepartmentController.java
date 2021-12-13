@@ -1,6 +1,5 @@
 package com.department.controller;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -31,7 +30,17 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	
-	@GetMapping("/{name}")
+	@GetMapping("/{id}")
+	@ApiOperation("Returns an department by id")
+	public ResponseEntity<DepartmentDTO> findDepartmentById(@Valid @PathVariable("id") String id) {
+		if (null == id) {
+			throw new InvalidInputException("702", "Id is not valid");
+		}
+		// return 200, with JSON body
+		return ResponseEntity.ok().body(DepartmentMapper.entityToDTO(departmentService.findDepartmentById(id)));
+	}
+	
+	@GetMapping("/name/{name}")
 	@ApiOperation("Returns a department by name")
 	public ResponseEntity<DepartmentDTO> findDepartmentByName(@Valid @PathVariable("name") String name) {
 		if (CommonUtils.isBlankString(name)) {
@@ -79,7 +88,7 @@ public class DepartmentController {
 
 	@PutMapping("/{id}")
 	@ApiOperation("Update a Department")
-	public ResponseEntity<DepartmentDTO> modifyDepartment(@PathVariable("id") BigInteger id,
+	public ResponseEntity<DepartmentDTO> modifyDepartment(@PathVariable("id") String id,
 			@RequestParam(name = "name", required = false) String name,
 			@RequestParam(name = "address", required = false) String address,
 			@RequestParam(name = "code", required = false) String code) {

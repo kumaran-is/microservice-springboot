@@ -1,6 +1,5 @@
 package com.department.repository;
 
-import java.math.BigInteger;
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -10,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.department.entity.Department;
 
 @Repository
-public interface DepartmentRepository extends MongoRepository<Department, BigInteger>{
+public interface DepartmentRepository extends MongoRepository<Department, String>{
 
 	@Transactional(readOnly = true)
 	// @Query("SELECT s FROM Department s where s.name = ?1")

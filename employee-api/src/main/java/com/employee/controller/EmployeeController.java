@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.employee.dto.EmpDeptWrapperDTO;
 import com.employee.dto.EmployeeDTO;
 import com.employee.exception.InvalidInputException;
 import com.employee.mapper.EmployeeMapper;
@@ -53,6 +55,15 @@ public class EmployeeController {
 		return ResponseEntity.ok().body(EmployeeMapper.entityToDTO(employeeService.findEmployeeByEmail(email)));
 	}
 	
+	@GetMapping("/dept/{id}")
+	@ApiOperation("Returns an employee with department details")
+	public ResponseEntity<EmpDeptWrapperDTO> findEmployeeWithDepartment(@Valid @PathVariable("id") Long id) {
+		if (null == id || id.equals(0L)) {
+			throw new InvalidInputException("702", "Id is not valid");
+		}
+		// return 200, with JSON body
+		return ResponseEntity.ok().body(employeeService.findEmployeeWithDepartment(id));
+	}
 	
 	@GetMapping
 	@ApiOperation("Returns all the Employee")
@@ -104,5 +115,6 @@ public class EmployeeController {
 				.body(EmployeeMapper.entityToDTO(employeeService.updateEmployee(id, firstName, lastName, email)));
 
 	}
+	
 
 }

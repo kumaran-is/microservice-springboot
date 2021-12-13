@@ -1,6 +1,7 @@
 package com.employee.service;
 
 import java.util.List;
+import com.employee.dto.EmpDeptWrapperDTO;
 import com.employee.entity.Employee;
 
 public interface EmployeeService {
@@ -16,4 +17,6 @@ public interface EmployeeService {
 	public void deleteEmployee(Long id);
 
 	public Employee updateEmployee(Long id, String firstName, String lastName, String email);
+	
+	public EmpDeptWrapperDTO findEmployeeWithDepartment(Long id);
 }

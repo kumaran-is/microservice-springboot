@@ -2,6 +2,9 @@ package com.employee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
 import lombok.extern.slf4j.Slf4j;
 
 /*
@@ -16,6 +19,12 @@ public class EmployeeApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeApiApplication.class, args);
 		log.info("employee-api microservice started......");
+	}
+	
+	@Bean
+	public RestTemplate restTemplate()
+	{
+		return new RestTemplate();
 	}
 
 }

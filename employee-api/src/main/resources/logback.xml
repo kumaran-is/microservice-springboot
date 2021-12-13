@@ -1,5 +1,5 @@
 <configuration debug="true" scan="true" packagingData="true">
-  <property name="LOG_DIR" value="/Users/kumaraniyyasamysrinivasan/mydrive/personal/microservices/logfiles" />
+  <property name="LOG_DIR" value="/Users/kumaraniyyasamysrinivasan/mydrive/personal/microservice/logfiles" />
   <property name="FILE_PREFIX" value="employee" />
 
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">>

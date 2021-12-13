@@ -1,4 +1,4 @@
-package com.department.dto;
+package com.employee.dto;
 
 import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel(description = "Department DTO")
-public class DepartmentDTO implements Serializable{
+public class DepartmentDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

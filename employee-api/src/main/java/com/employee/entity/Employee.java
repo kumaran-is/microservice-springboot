@@ -43,6 +43,9 @@ public class Employee {
 	@Column(name = "gender", nullable = false)
 	private Gender gender;
 	
+	@Column(name = "departmentId", nullable = false)
+	private String departmentId;
+	
 	@Transient
 	private Integer age;
 	

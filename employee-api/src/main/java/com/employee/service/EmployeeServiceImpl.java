@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.employee.exception.ResourceAlreadyExistsException;
 import com.employee.exception.ResourceNotFoundException;
+import com.employee.mapper.EmployeeMapper;
+import com.employee.dto.DepartmentDTO;
+import com.employee.dto.EmpDeptWrapperDTO;
 import com.employee.entity.Employee;
 import com.employee.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +23,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@Override
 	@Transactional(readOnly = true)
@@ -44,10 +51,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 				() -> new ResourceNotFoundException("700", "Employee with email " + email + " does not exists"));
 
 	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public EmpDeptWrapperDTO findEmployeeWithDepartment(Long id) {
+
+		
+		Employee employee = employeeRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("700", "Employee with id " + id + " does not exists"));
+		DepartmentDTO departmentDTO = restTemplate.getForObject("http://localhost:9001/api/v1/departments/"+ employee.getDepartmentId(), DepartmentDTO.class);
+		
+		return  new EmpDeptWrapperDTO(EmployeeMapper.entityToDTO(employee), departmentDTO );	
+
+	}
+
 
 	@Override
 	public Employee saveEmployee(Employee employee) {
-		log.debug("saveEmployee service employee ....." + employee);
+		log.debug("saveEmployee service employee .....", employee);
 
 		Optional<Employee> employeeOptional = employeeRepository.findByEmail(employee.getEmail());
 

@@ -1,6 +1,5 @@
 package com.department.service;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -26,6 +25,15 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public List<Department> getAllDepartments() {
 
 		return departmentRepository.findAll();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Department findDepartmentById(String id){
+
+		return departmentRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("700", "Department with id " + id + " does not exists"));
+
 	}
 	
 	@Override
@@ -65,7 +73,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 	
 	@Override
-	public Department updateDepartment(BigInteger id, String name, String address, String code) {
+	public Department updateDepartment(String id, String name, String address, String code) {
 		
 		Department department = departmentRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("700", "Department with id " + id + " does not exists"));
