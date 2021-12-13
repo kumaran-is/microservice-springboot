@@ -1,10 +1,10 @@
-package com.department.util;
+package com.department.mapper;
 
 import org.springframework.beans.BeanUtils;
 import com.department.dto.DepartmentDTO;
 import com.department.entity.Department;
 
-public class MapperUtils {
+public class DepartmentMapper {
 
     public static DepartmentDTO entityToDTO(Department department) {
     	DepartmentDTO departmentDTO = new DepartmentDTO();

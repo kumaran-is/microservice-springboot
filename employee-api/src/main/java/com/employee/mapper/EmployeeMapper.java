@@ -1,10 +1,10 @@
-package com.employee.util;
+package com.employee.mapper;
 
 import org.springframework.beans.BeanUtils;
 import com.employee.dto.EmployeeDTO;
 import com.employee.entity.Employee;
 
-public class MapperUtils {
+public class EmployeeMapper {
 
     public static EmployeeDTO entityToDTO(Employee employee) {
     	EmployeeDTO employeeDTO = new EmployeeDTO();

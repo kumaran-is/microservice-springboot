@@ -8,8 +8,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import com.employee.constants.Gender;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel(description = "Employee DTO")
 public class EmployeeDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
