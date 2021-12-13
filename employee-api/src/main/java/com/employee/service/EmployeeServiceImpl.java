@@ -59,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		Employee employee = employeeRepository.findById(id).orElseThrow(
 				() -> new ResourceNotFoundException("700", "Employee with id " + id + " does not exists"));
-		DepartmentDTO departmentDTO = restTemplate.getForObject("http://localhost:9001/api/v1/departments/"+ employee.getDepartmentId(), DepartmentDTO.class);
+		DepartmentDTO departmentDTO = restTemplate.getForObject("http://DEPARTMENT-API/api/v1/departments/"+ employee.getDepartmentId(), DepartmentDTO.class);
 		
 		return  new EmpDeptWrapperDTO(EmployeeMapper.entityToDTO(employee), departmentDTO );	
 
