@@ -41,13 +41,12 @@ Spring Boot Actuator exposes a configurable health-check endpoint which are ofte
 
 | Method / Resource  | Description                     |  URL                                                   |
 |--------------------|---------------------------------|--------------------------------------------------------|
-| `GET /health-check` | Checks the health of the server | <http://localhost:9001/api/v1/health-check> |
-| `GET /health-check/full` | Checks the health of both Web API and Java servers| <http://localhost:9001/api/v1/health-check/full> |
+| `GET /health-check` | Checks the health of the server | <http://localhost:9001/actuator/health> |
 
 ## Logging using Logback with SLF4J
 Logback is one of the most widely used logging frameworks in Spring boot and natively implements the SLF4J. Default log level is `info`. The order of the log levels are `Error < Warn < Info < Debug < Trace`. You can find the log configurations in `logback.xml` under resources folder
 
 ## Status and Issues
 
-* [employee-api Change History](./CHANGELOG.md).
+* [department-api Change History](./CHANGELOG.md).
 * [Issue tracker](https://github.com/kumaran-is/microservice-springboot/issues?state=open)
