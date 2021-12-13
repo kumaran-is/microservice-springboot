@@ -1,3 +1,8 @@
+## 0.2.0 (2021-12-13)
+
+#### Features
+* Implemented Registry service using Spring Cloud Eureka server(spring-cloud-starter-netflix-eureka-server)
+
 ## 0.1.0 (2021-12-13)
 
 #### Features
