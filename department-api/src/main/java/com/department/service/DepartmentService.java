@@ -1,5 +1,6 @@
 package com.department.service;
 
+import java.math.BigInteger;
 import java.util.List;
 import com.department.entity.Department;
 
@@ -13,7 +14,7 @@ public interface DepartmentService {
 
 	public void deleteDepartment(String name);
 
-	public Department updateDepartment(Long id, String name, String address, String code);
+	public Department updateDepartment(BigInteger id, String name, String address, String code);
 
 
 }

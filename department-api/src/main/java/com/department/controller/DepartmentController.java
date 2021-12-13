@@ -1,5 +1,6 @@
 package com.department.controller;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -78,11 +79,11 @@ public class DepartmentController {
 
 	@PutMapping("/{id}")
 	@ApiOperation("Update a Department")
-	public ResponseEntity<DepartmentDTO> modifyDepartment(@PathVariable("id") Long id,
+	public ResponseEntity<DepartmentDTO> modifyDepartment(@PathVariable("id") BigInteger id,
 			@RequestParam(name = "name", required = false) String name,
 			@RequestParam(name = "address", required = false) String address,
 			@RequestParam(name = "code", required = false) String code) {
-		if (null == id || id.equals(0L)) {
+		if (null == id) {
 			throw new InvalidInputException("702", "Id is not valid");
 		}
 		return ResponseEntity.ok()

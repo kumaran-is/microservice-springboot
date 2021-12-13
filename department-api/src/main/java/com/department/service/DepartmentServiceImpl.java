@@ -1,5 +1,6 @@
 package com.department.service;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,7 +65,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 	
 	@Override
-	public Department updateDepartment(Long id, String name, String address, String code) {
+	public Department updateDepartment(BigInteger id, String name, String address, String code) {
 		
 		Department department = departmentRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("700", "Department with id " + id + " does not exists"));

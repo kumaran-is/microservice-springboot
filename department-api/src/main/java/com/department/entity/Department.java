@@ -1,5 +1,7 @@
 package com.department.entity;
 
+import java.math.BigInteger;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
@@ -12,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "department")
 public class Department {
     @Id
-    private Long id;
+    private BigInteger id;
     private String name;
     private String address;
     private String code;
