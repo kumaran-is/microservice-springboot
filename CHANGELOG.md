@@ -1,3 +1,8 @@
+## 0.3.0 (2021-12-13)
+
+#### Features
+* Implemented API Gateway using [Spring Cloud Gateway](https://cloud.spring.io/spring-cloud-gateway/reference/html/)
+
 ## 0.2.0 (2021-12-13)
 
 #### Features
