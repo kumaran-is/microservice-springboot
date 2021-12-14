@@ -1,6 +1,11 @@
 ## 0.5.0 (2021-12-14)
 
 #### Features
+* Implemented `Distributed Tracing` with [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) and [Spring Cloud Zipkin](https://zipkin.io/)
+
+## 0.5.0 (2021-12-14)
+
+#### Features
 * Externalize the configurations to central server using Spring Cloud Config Server
 
 ## 0.4.0 (2021-12-13)
