@@ -1,3 +1,8 @@
+## 0.4.0 (2021-12-13)
+
+#### Features
+* Implemented Circuit Breaker using [Netflix Hystrix](https://github.com/Netflix/Hystrix)
+
 ## 0.3.0 (2021-12-13)
 
 #### Features
