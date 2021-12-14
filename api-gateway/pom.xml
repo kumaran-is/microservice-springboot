@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.gateway</groupId>
 	<artifactId>api-gateway</artifactId>
-	<version>0.4.0</version>
+	<version>0.5.0</version>
 	<name>api-gateway</name>
 	<description>API Gateway for Micro-services</description>
 	<properties>
@@ -33,6 +33,10 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
