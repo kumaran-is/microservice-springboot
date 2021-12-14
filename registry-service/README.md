@@ -35,7 +35,9 @@ To be informed about the presence of a client, they have to send a heartbeat sig
 To implement Netflix Eureka Service Registry we need :
 
 - A service registry (Eureka Server),
-- One or more  REST services/micro-services (Eureka Client) which registers itself with Eureka Server 
+- One or more  REST services/micro-services (Eureka Client) which registers itself with Eureka Server
+
+Navigate to Eureka dashboard <http://localhost:8761/> to monitor the status of Eureka Clients
 
 ## Logging using Logback with SLF4J
 Logback is one of the most widely used logging frameworks in Spring boot and natively implements the SLF4J. Default log level is `info`. The order of the log levels are `Error < Warn < Info < Debug < Trace`. You can find the log configurations in `logback.xml` under resources folder

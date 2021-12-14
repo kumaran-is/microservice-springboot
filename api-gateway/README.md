@@ -36,6 +36,10 @@ Note: Hystrix is no longer in active development, and is currently deprecated.
 
 Resilience4j is a recommended lightweight fault tolerance library inspired by Netflix Hystrix, but designed for Java 8 and functional/reactive programming. It provides adaptive implementations that react to an application’s real time performance rather than pre-configured settings (for example, through adaptive concurrency limits)
 
+Netflix Hystrix aggregate data from all the servicesv into a single stream of metrics supporting the dashboard application, which in turn streams the aggregated data to the browser for display in the UI. You can find the hystrix stream <http://localhost:9191/actuator/hystrix.stream>. 
+
+Hystrix stream can be monitored on Hystrix Dashboard to monitor the application metrics and health of each Hystrix circuit-breaker 
+
 
 ## Logging using Logback with SLF4J
 Logback is one of the most widely used logging frameworks in Spring boot and natively implements the SLF4J. Default log level is `info`. The order of the log levels are `Error < Warn < Info < Debug < Trace`. You can find the log configurations in `logback.xml` under resources folder
