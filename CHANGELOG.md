@@ -1,3 +1,8 @@
+## 0.3.0 (2021-12-13)
+
+#### Features
+* Implemented API Gateway using Spring Cloud Routing
+
 ## 0.2.0 (2021-12-13)
 
 #### Features
