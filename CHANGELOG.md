@@ -3,6 +3,8 @@
 #### Features
 * Implemented Circuit Breaker using [Netflix Hystrix](https://github.com/Netflix/Hystrix)
 
+* Implemented [Netflix Hystrix Dashboard](https://github.com/spring-cloud-samples/hystrix-dashboard)
+
 ## 0.3.0 (2021-12-13)
 
 #### Features

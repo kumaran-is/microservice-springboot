@@ -48,5 +48,5 @@ Logback is one of the most widely used logging frameworks in Spring boot and nat
 
 ## Status and Issues
 
-* [department-api Change History](./CHANGELOG.md).
+* [Change History](./../CHANGELOG.md).
 * [Issue tracker](https://github.com/kumaran-is/microservice-springboot/issues?state=open)

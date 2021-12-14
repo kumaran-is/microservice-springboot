@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.registry</groupId>
 	<artifactId>registry-service</artifactId>
-	<version>0.2.0</version>
+	<version>0.4.0</version>
 	<name>registry-service</name>
 	<description>Registry and discovery service for Micro-services</description>
 	<properties>
