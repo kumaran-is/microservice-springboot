@@ -49,7 +49,7 @@ Spring Boot Actuator exposes a configurable health-check endpoint which are ofte
 ## Logging using Logback with SLF4J
 Logback is one of the most widely used logging frameworks in Spring boot and natively implements the SLF4J. Default log level is `info`. The order of the log levels are `Error < Warn < Info < Debug < Trace`. You can find the log configurations in `logback.xml` under resources folder
 
-# Distributed Tracing
+## Distributed Tracing
 Distributed tracing can be implemented using [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) and [Spring Cloud Zipkin](https://zipkin.io/).
 
 As a request flows from one component or micro-service to another in a distributed system,  Sleuth service adds a unique trace ID when the first request is made. As a request arrives at a component or micro-service along its journey, a new span ID is assigned for that component or micro-service and added to the trace. Trace ID is n unique Id throughout the entire request whereas Span ID is unique within a component or micro-service

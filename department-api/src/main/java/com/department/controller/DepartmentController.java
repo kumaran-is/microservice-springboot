@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.department.DepartmentApiApplication;
 import com.department.dto.DepartmentDTO;
 import com.department.entity.Department;
 import com.department.exception.InvalidInputException;
@@ -23,6 +27,7 @@ import com.department.mapper.DepartmentMapper;
 import com.department.service.DepartmentService;
 import com.department.util.CommonUtils;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/departments")
 public class DepartmentController {

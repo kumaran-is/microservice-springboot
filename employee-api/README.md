@@ -8,6 +8,7 @@ Employee API is a micro-service built using [Spring Boot](https://spring.io/proj
 - [Design, Document and Test API services using SpringFox and Swagger](#design-document-and-test-api-services-using-springfox-and-swagger)
 - [Monitor the API Service using Spring Boot Actuator HTTP Endpoints](#monitor-the-aoi-service-using-spring-boot-actuator-http-endpoints)
 - [Logging using Logback with SLF4J](#logging-using-logback-with-slf4j)
+- [Client Side Load Balancing](#client-side-load-balancing)
 - [Distributed Tracing](#distributed-tracing)
 - [Status and Issues](#status-and-issues)
 
@@ -50,7 +51,11 @@ Spring Boot Actuator exposes a configurable health-check endpoint which are ofte
 ## Logging using Logback with SLF4J
 Logback is one of the most widely used logging frameworks in Spring boot and natively implements the SLF4J. Default log level is `info`. The order of the log levels are `Error < Warn < Info < Debug < Trace`. You can find the log configurations in `logback.xml` under resources folder
 
-# Distributed Tracing
+# Client Side Load Balancing
+ `employee-api` micro-service invokes internally `department-api` micro-service  via Eureka Discovery service using Spring RestTemplate. If there are more than 
+ one `department-api` micro-service instances, then we need to do client side load balancing  of `department-api` micro-service instances at `employee-api` micro-service side. It can achieved using `@LoadBalanced` annotation. The @LoadBalanced annotation will make an instance of created RestTemplate load-balanced.
+
+## Distributed Tracing
 Distributed tracing can be implemented using [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) and [Spring Cloud Zipkin](https://zipkin.io/).
 
 As a request flows from one component or micro-service to another in a distributed system,  Sleuth service adds a unique trace ID when the first request is made. As a request arrives at a component or micro-service along its journey, a new span ID is assigned for that component or micro-service and added to the trace. Trace ID is n unique Id throughout the entire request whereas Span ID is unique within a component or micro-service
