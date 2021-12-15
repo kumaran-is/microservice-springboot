@@ -27,10 +27,13 @@ Library | Version | Notes
 TBD
 
 ## Spring Cloud Gateway
-API Gateway built on top of the Spring Ecosystem. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency.
+API Gateway built on top of the Spring Ecosystem. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, rate limit, service aggregation, filtering, routing and fault tolerance (resiliency). Custom filter can be implemented to perform role based authentication, pre and post processing request/response, encrypt data etc.
 
 ## Netflix Hystrix Circuit Breaker
 Netflix Hystrix implements circuit breaker for distributed systems. Hystrix is a latency and fault tolerance library designed to isolate points of access to remote systems, services and 3rd party libraries, stop cascading failure and enable resilience in complex distributed systems where failure is inevitable.
+Retry and handle the error gracefuly, we don't want calling service to collapse and throw exceptions to the client.
+
+
 
 Note: Hystrix is no longer in active development, and is currently deprecated.
 
