@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.department.DepartmentApiApplication;
 import com.department.dto.DepartmentDTO;
 import com.department.entity.Department;
 import com.department.exception.InvalidInputException;
@@ -30,10 +30,20 @@ import com.department.util.CommonUtils;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/departments")
+@RefreshScope
 public class DepartmentController {
 	
 	@Autowired
 	private DepartmentService departmentService;
+	
+	@Value("${com.department.microservice.prop}")
+	private String prop;
+	
+	@GetMapping("/prop")
+	@ApiOperation("Returns custom configuration value from cloud config server to test dynamic refresh of configuration values ")
+	public String getProp() {
+		return this.prop;
+	}
 	
 	@GetMapping("/{id}")
 	@ApiOperation("Returns an department by id")

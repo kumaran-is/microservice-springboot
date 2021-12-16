@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,10 +32,20 @@ import com.employee.util.CommonUtils;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/employees")
+@RefreshScope
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Value("${com.employee.microservice.prop}")
+	private String prop;
+	
+	@GetMapping("/prop")
+	@ApiOperation("Returns custom configuration value from cloud config server to test dynamic refresh of configuration values ")
+	public String getProp() {
+		return this.prop;
+	}
 	
 	@GetMapping("/{id}")
 	@ApiOperation("Returns an employee by id")
