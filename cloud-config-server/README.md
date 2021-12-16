@@ -33,6 +33,8 @@ Following are the some of the backends that are supported by `Spring Cloud Confi
 - Redis
 - AWS S3
 
+For this demo service, we have uploaded all the configuration files to public github repo : <https://github.com/kumaran-is/external-config>
+
 `Spring Cloud Config Server`  can be secured using Spring security, encryption/decryption
 
  By default, `Spring Cloud Config Client` looks for configuration files that match the application name (for example, EMPLOYEE-API.properties is targeted at the spring.application.name=EMPLOYEE-API, while application.properties is targeted at all applications).
